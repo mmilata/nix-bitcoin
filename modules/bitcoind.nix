@@ -27,6 +27,10 @@ let
     ${optionalString (cfg.rpcuser != null) "rpcuser=${cfg.rpcuser}"}
     ${optionalString (cfg.rpcpassword != null) "rpcpassword=${cfg.rpcpassword}"}
 
+    # ZMQ options
+    ${optionalString (config.services.lnd.enable) "zmqpubrawblock=${config.services.bitcoind.zmqpubrawblock}"}
+    ${optionalString (config.services.lnd.enable) "zmqpubrawtx=${config.services.bitcoind.zmqpubrawtx}"}
+
     # Extra config options (from bitcoind nixos service)
     ${cfg.extraConfig}
   '';
